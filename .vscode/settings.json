@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        "*.thor": "ruby",
+        "*.js": "javascriptreact"
+    }
+}
