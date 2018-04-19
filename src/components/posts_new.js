@@ -29,7 +29,11 @@ class PostsNew extends Component {
     onSubmit(values) {
         // this === component
         console.log(values);
-        this.props.createPost(values);
+        this.props.createPost(values, () =>{
+            //Callback function
+            // Instantly navigate to the root route
+            this.props.history.push('/'); 
+        });
     }
 
     // Redux form does not take care of posting data to somewhere. Takes care of the state and validation of the form.
