@@ -1,6 +1,7 @@
-import { FETCH_POST, FETCH_POSTS, CREATE_POST } from '../actions';
+import { FETCH_POST, FETCH_POSTS, CREATE_POST, DELETE_POST } from '../actions';
 import _ from 'lodash';
 
+// Use an object as the application state instead of an array. It is better and easier ;)
 export default function (state = {}, action) {
     switch (action.type) {
         case FETCH_POST:
@@ -17,8 +18,8 @@ export default function (state = {}, action) {
             return { ...state, [action.payload.data.id]: action.payload.data};
         case FETCH_POSTS:
             return _.mapKeys(action.payload.data, 'id');
-        // case CREATE_POST:
-
+        case DELETE_POST:
+            return _.omit(state, action.payload);
         default:
             return state;
     }
